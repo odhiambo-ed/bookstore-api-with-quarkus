@@ -17,5 +17,7 @@ public class BookResource {
     }
 
     @GET
-    public List
+    public List<Book> getAllBooks() {
+        return bookService.getAllBooks();
+    }
 }
