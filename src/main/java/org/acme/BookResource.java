@@ -2,6 +2,7 @@ package org.acme;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
@@ -19,5 +20,10 @@ public class BookResource {
     @GET
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @POST
+    public Book createBook(Book book) {
+        return bookService.createBook(book);
     }
 }
