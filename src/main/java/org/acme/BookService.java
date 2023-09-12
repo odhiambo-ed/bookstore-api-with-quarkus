@@ -1,17 +1,18 @@
 package org.acme;
 
-import java.util.ArrayList;
+import javax.transaction.Transactional;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
+@Transactional
 public class BookService {
-    private final List<Book> books = new ArrayList<>();
-
     public List<Book> getAllBooks() {
-        return books;
+        return Book.listAll();
     }
 
     public Book createBook(Book book) {
-        books.add(book);
+        book.persist();
         return book;
     }
 }
