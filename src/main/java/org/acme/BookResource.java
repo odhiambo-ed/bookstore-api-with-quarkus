@@ -1,9 +1,11 @@
 package org.acme;
 
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
@@ -26,5 +28,12 @@ public class BookResource {
     @Produces(MediaType.TEXT_PLAIN)
     public int countAllBooks() {
         return getAllBooks().size();
+    }
+
+    //View Single book
+    @GET
+    @Path("{id}")
+    public Optional<Book> getBook(@PathParam("id") int id) {
+        return getAllBooks().stream().filter(book -> book.id == id).findFirst();
     }
 }
