@@ -13,10 +13,18 @@ public class BookResource {
     @GET
     public List<Book> getAllBooks() {
         return List.of(
-            new Book(1, "Java for Beginers", "Edward", 2023, "Java"),
-            new Book(1, "JavaScript for Beginers", "Edward", 2023, "JavaScript"),
-            new Book(1, "Ruby for Beginers", "Edward", 2023, "Ruby"),
-            new Book(1, "React for Beginers", "Edward", 2023, "React")
-        );
+                new Book(1, "Java for Beginers", "Edward", 2023, "Java"),
+                new Book(1, "JavaScript for Beginers", "Edward", 2023, "JavaScript"),
+                new Book(1, "Ruby for Beginers", "Edward", 2023, "Ruby"),
+                new Book(1, "React for Beginers", "Edward", 2023, "React")
+                );
+    }
+    
+    //Count Books
+    @GET
+    @Path("/count")
+    @Produces(MediaType.TEXT_PLAIN)
+    public int countAllBooks() {
+        return getAllBooks().size();
     }
 }
