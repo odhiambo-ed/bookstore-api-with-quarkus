@@ -6,4 +6,13 @@ public class Book {
     public String author;
     public int yearOfPublication;
     public String genre;
+
+    // Contructor
+    public Book(int id, String title, String author, int yearOfPublication, String genre) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.yearOfPublication = yearOfPublication;
+        this.genre = genre;
+    }
 }
